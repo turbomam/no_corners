@@ -1,0 +1,6 @@
+name: no_corners
+author: Mark Andrew Miller <mam@lbl.gov>
+description: Testing a reqular expression for 96-well plates, where the corner wells must not be filled with a test sample
+source_schema_path: src/no_corners/schema/no_corners.yaml
+google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
+google_sheet_tabs: personinfo enums
