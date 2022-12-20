@@ -1,9 +1,8 @@
 @prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix famrel: <http://example.org/famrel/> .
 @prefix linkml: <https://w3id.org/linkml/> .
-@prefix my_datamodel: <https://w3id.org/my_org/my_datamodel> .
+@prefix no_corners: <https://w3id.org/turbomam/no_corners/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -20,238 +19,88 @@ linkml:TypeDefinition a owl:Class ;
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-my_datamodel: a owl:Ontology ;
-    rdfs:label "my_datamodel" ;
-    IAO:0000700 my_datamodel:Address,
-        my_datamodel:HasAliases,
-        my_datamodel:NamedThing,
-        my_datamodel:Registry,
-        my_datamodel:Relationship ;
-    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    dcterms:title "My Datamodel" ;
-    rdfs:seeAlso "https://example.org/" ;
-    linkml:generation_date "2022-09-06T10:01:46" ;
+<https://w3id.org/turbomam/no_corners> a owl:Ontology ;
+    rdfs:label "no_corners" ;
+    IAO:0000700 no_corners:NamedThing,
+        no_corners:PersonCollection ;
+    dcterms:license "MIT" ;
+    dcterms:title "no_corners" ;
+    rdfs:seeAlso "https://turbomam.github.io/no_corners" ;
+    linkml:generation_date "2022-12-20T18:58:32" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "no_corners.yaml" ;
-    linkml:source_file_date "2022-09-06T10:00:58" ;
-    linkml:source_file_size 3771 .
+    linkml:source_file_date "2022-12-20T18:47:22" ;
+    linkml:source_file_size 2254 .
 
-my_datamodel:employed_at a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "employed_at" ;
-    rdfs:range my_datamodel:Organization .
-
-my_datamodel:is_current a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "is_current" ;
-    rdfs:range linkml:Boolean .
-
-my_datamodel:Registry a owl:Class,
+no_corners:PersonCollection a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "Registry" ;
+    rdfs:label "PersonCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom my_datamodel:Person ;
-            owl:onProperty my_datamodel:persons ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom my_datamodel:Organization ;
-            owl:onProperty my_datamodel:organizations ] ;
-    skos:definition "Top level data container" .
+            owl:allValuesFrom no_corners:Person ;
+            owl:onProperty no_corners:entries ] ;
+    skos:definition "A holder for Person objects" .
 
-my_datamodel:age_in_years a owl:ObjectProperty,
+no_corners:age_in_years a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "age_in_years" ;
-    rdfs:range linkml:Integer .
+    rdfs:range linkml:Integer ;
+    skos:definition "Number of years since birth" .
 
-my_datamodel:city a owl:ObjectProperty,
+no_corners:entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "city" ;
-    rdfs:range linkml:String .
+    rdfs:label "entries" ;
+    rdfs:range no_corners:Person .
 
-my_datamodel:current_address a owl:ObjectProperty,
+no_corners:vital_status a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "current_address" ;
-    rdfs:range my_datamodel:Address ;
-    skos:definition "The address at which a person currently lives" .
-
-my_datamodel:founding_date a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "founding_date" ;
-    rdfs:range linkml:String .
-
-my_datamodel:has_familial_relationships a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "has_familial_relationships" ;
-    rdfs:range my_datamodel:FamilialRelationship .
-
-my_datamodel:mission_statement a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "mission_statement" ;
-    rdfs:range linkml:String .
-
-my_datamodel:organizations a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "organizations" ;
-    rdfs:range my_datamodel:Organization .
-
-my_datamodel:persons a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "persons" ;
-    rdfs:range my_datamodel:Person .
-
-my_datamodel:postal_code a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "postal_code" ;
-    rdfs:range linkml:String .
-
-my_datamodel:street a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "street" ;
-    rdfs:range linkml:String .
-
-famrel:02 a owl:Class,
-        my_datamodel:FamilialRelationshipType ;
-    rdfs:label "PARENT_OF" .
+    rdfs:label "vital_status" ;
+    rdfs:range no_corners:PersonStatus ;
+    skos:definition "living or dead status" .
 
 PATO:0001421 a owl:Class,
-        my_datamodel:PersonStatus ;
+        no_corners:PersonStatus ;
     rdfs:label "ALIVE" .
 
 PATO:0001422 a owl:Class,
-        my_datamodel:PersonStatus ;
+        no_corners:PersonStatus ;
     rdfs:label "DEAD" .
 
 schema:birthDate a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "birth_date" ;
-    rdfs:range linkml:String ;
+    rdfs:range linkml:Date ;
+    skos:definition "Date on which a person is born" ;
     skos:exactMatch schema:birthDate .
 
 schema:description a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "description" ;
     rdfs:range linkml:String ;
+    skos:definition "A human-readable description for a thing" ;
     skos:exactMatch schema:description .
 
 schema:email a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "primary_email" ;
     rdfs:range linkml:String ;
+    skos:definition "The main email address of a person" ;
     skos:exactMatch schema:email .
 
 schema:identifier a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "id" ;
-    rdfs:range linkml:String ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for a thing" ;
     skos:exactMatch schema:identifier .
-
-schema:image a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "image" ;
-    rdfs:range linkml:String ;
-    skos:exactMatch schema:image .
 
 schema:name a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "name" ;
     rdfs:range linkml:String ;
+    skos:definition "A human-readable name for a thing" ;
     skos:exactMatch schema:name .
 
-<http://www.w3.org/ns/prov#endedAtTime> a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "ended_at_time" ;
-    rdfs:range linkml:Date ;
-    skos:exactMatch <http://www.w3.org/ns/prov#endedAtTime> .
-
-<http://www.w3.org/ns/prov#startedAtTime> a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "started_at_time" ;
-    rdfs:range linkml:Date ;
-    skos:exactMatch <http://www.w3.org/ns/prov#startedAtTime> .
-
-my_datamodel:FamilialRelationship a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "FamilialRelationship" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass my_datamodel:FamilialRelationshipType ;
-            owl:onProperty my_datamodel:type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass my_datamodel:Person ;
-            owl:onProperty my_datamodel:related_to ;
-            owl:qualifiedCardinality 1 ],
-        my_datamodel:Relationship .
-
-<https://w3id.org/my_org/my_datamodelPersonStatus#UNKNOWN> a owl:Class,
-        my_datamodel:PersonStatus ;
-    rdfs:label "UNKNOWN" .
-
-my_datamodel:Relationship a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Relationship" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:related_to ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Date ;
-            owl:onProperty <http://www.w3.org/ns/prov#endedAtTime> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Date ;
-            owl:onProperty <http://www.w3.org/ns/prov#startedAtTime> ] .
-
-my_datamodel:related_to a owl:ObjectProperty,
-        linkml:SlotDefinition .
-
-my_datamodel:type a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "type" ;
-    rdfs:range linkml:String .
-
-famrel:01 a owl:Class,
-        my_datamodel:FamilialRelationshipType ;
-    rdfs:label "CHILD_OF",
-        "SIBLING_OF" .
-
-my_datamodel:Address a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Address" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:city ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:street ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:postal_code ] ;
-    skos:exactMatch schema:PostalAddress .
-
-my_datamodel:FamilialRelationshipType a owl:Class,
-        linkml:EnumDefinition ;
-    rdfs:label "FamilialRelationshipType" ;
-    owl:unionOf ( famrel:01 famrel:02 famrel:01 ) ;
-    linkml:permissible_values famrel:01,
-        famrel:02 .
-
-my_datamodel:HasAliases a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "HasAliases" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty my_datamodel:aliases ],
-        linkml:mixin ;
-    skos:definition "A mixin applied to any class that can have aliases/alternateNames" .
-
-my_datamodel:NamedThing a owl:Class,
+no_corners:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -259,85 +108,52 @@ my_datamodel:NamedThing a owl:Class,
             owl:onClass linkml:String ;
             owl:onProperty schema:description ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema:name ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema:image ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
+            owl:onClass linkml:Uriorcurie ;
             owl:onProperty schema:identifier ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:closeMatch schema:Thing ;
-    skos:definition "A generic grouping for any identifiable entity" .
-
-my_datamodel:Organization a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Organization" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:mission_statement ],
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty my_datamodel:founding_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty my_datamodel:aliases ],
-        my_datamodel:HasAliases,
-        my_datamodel:NamedThing ;
-    skos:definition "An organization such as a company or university" ;
-    skos:exactMatch schema:Organization .
+            owl:onProperty schema:name ] ;
+    skos:definition "A generic grouping for any identifiable entity" ;
+    skos:exactMatch schema:Thing .
 
-my_datamodel:Person a owl:Class,
+no_corners:Person a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty my_datamodel:aliases ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom my_datamodel:FamilialRelationship ;
-            owl:onProperty my_datamodel:has_familial_relationships ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty my_datamodel:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass my_datamodel:Address ;
-            owl:onProperty my_datamodel:current_address ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema:birthDate ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty schema:email ],
-        my_datamodel:HasAliases,
-        my_datamodel:NamedThing ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
-    skos:exactMatch schema:Person .
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty no_corners:age_in_years ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass no_corners:PersonStatus ;
+            owl:onProperty no_corners:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Date ;
+            owl:onProperty schema:birthDate ],
+        no_corners:NamedThing ;
+    skos:definition "Represents a Person" .
 
-my_datamodel:PersonStatus a owl:Class,
-        linkml:EnumDefinition ;
-    rdfs:label "PersonStatus" ;
-    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/my_org/my_datamodelPersonStatus#UNKNOWN> ) ;
-    linkml:permissible_values PATO:0001421,
-        PATO:0001422,
-        <https://w3id.org/my_org/my_datamodelPersonStatus#UNKNOWN> .
-
-my_datamodel:aliases a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "aliases" ;
-    rdfs:range linkml:String ;
-    skos:exactMatch schema:alternateName .
+<https://w3id.org/turbomam/no_corners/PersonStatus#UNKNOWN> a owl:Class,
+        no_corners:PersonStatus ;
+    rdfs:label "UNKNOWN" .
 
 linkml:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" .
+
+no_corners:PersonStatus a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "PersonStatus" ;
+    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/turbomam/no_corners/PersonStatus#UNKNOWN> ) ;
+    linkml:permissible_values PATO:0001421,
+        PATO:0001422,
+        <https://w3id.org/turbomam/no_corners/PersonStatus#UNKNOWN> .
 
 linkml:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" .
