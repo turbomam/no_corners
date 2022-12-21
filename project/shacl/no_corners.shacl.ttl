@@ -8,18 +8,18 @@ schema:Thing a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A human-readable name for a thing" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path schema:name ],
+            sh:order 0 ;
+            sh:path schema:identifier ],
         [ sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path schema:description ],
-        [ sh:description "A unique identifier for a thing" ;
+        [ sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path schema:identifier ] ;
+            sh:order 1 ;
+            sh:path schema:name ] ;
     sh:targetClass schema:Thing .
 
 no_corners:BiosampleCollection a sh:NodeShape ;
@@ -36,11 +36,7 @@ no_corners:Biosample a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Biosample" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path schema:identifier ],
-        [ sh:maxCount 1 ;
+    sh:property [ sh:maxCount 1 ;
             sh:order 0 ;
             sh:path no_corners:well_pos ;
             sh:pattern "^((A2)|(A3))$" ],
@@ -48,6 +44,10 @@ no_corners:Biosample a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:identifier ],
         [ sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:order 3 ;

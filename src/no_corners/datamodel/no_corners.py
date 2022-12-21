@@ -1,5 +1,5 @@
 # Auto generated from no_corners.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-20T19:19:27
+# Generation date: 2022-12-20T19:22:20
 # Schema: no_corners
 #
 # id: https://w3id.org/turbomam/no_corners

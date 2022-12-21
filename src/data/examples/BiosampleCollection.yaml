@@ -3,3 +3,6 @@ entries:
     well_pos: A2
   - id: bs:654
     well_pos: A3
+  - id: bs:999
+    well_pos: A4
+
