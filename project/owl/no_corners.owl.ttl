@@ -26,7 +26,7 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "no_corners" ;
     rdfs:seeAlso "https://turbomam.github.io/no_corners" ;
-    linkml:generation_date "2022-12-20T18:58:32" ;
+    linkml:generation_date "2022-12-20T18:59:23" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "no_corners.yaml" ;
     linkml:source_file_date "2022-12-20T18:47:22" ;
@@ -106,7 +106,7 @@ no_corners:NamedThing a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema:description ],
+            owl:onProperty schema:name ],
         [ a owl:Restriction ;
             owl:onClass linkml:Uriorcurie ;
             owl:onProperty schema:identifier ;
@@ -114,7 +114,7 @@ no_corners:NamedThing a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema:name ] ;
+            owl:onProperty schema:description ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema:Thing .
 

@@ -41,31 +41,31 @@ no_corners:Person a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path schema:name ],
-        [ sh:description "Number of years since birth" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path no_corners:age_in_years ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path schema:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema:description ],
         [ sh:description "living or dead status" ;
             sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path no_corners:vital_status ],
-        [ sh:description "Date on which a person is born" ;
+        [ sh:description "Number of years since birth" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path schema:birthDate ],
-        [ sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema:description ],
+            sh:order 2 ;
+            sh:path no_corners:age_in_years ],
         [ sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path schema:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
+            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
+        [ sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:birthDate ] ;
     sh:targetClass no_corners:Person .
 

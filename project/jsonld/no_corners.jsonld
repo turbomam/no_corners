@@ -445,7 +445,7 @@
   "source_file": "no_corners.yaml",
   "source_file_date": "2022-12-20T18:47:22",
   "source_file_size": 2254,
-  "generation_date": "2022-12-20T18:58:28",
+  "generation_date": "2022-12-20T18:59:19",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/no_corners.context.jsonld",
