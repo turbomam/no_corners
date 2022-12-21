@@ -1,23 +1,20 @@
+type Biosample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    wellPos: String
+  }
+
+type BiosampleCollection
+  {
+    entries: [Biosample]
+  }
+
 type NamedThing
   {
     id: Uriorcurie!
     name: String
     description: String
-  }
-
-type Person
-  {
-    id: Uriorcurie!
-    name: String
-    description: String
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
-  }
-
-type PersonCollection
-  {
-    entries: [Person]
   }
 

@@ -1,5 +1,5 @@
 # Auto generated from no_corners.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-20T18:59:25
+# Generation date: 2022-12-20T19:16:36
 # Schema: no_corners
 #
 # id: https://w3id.org/turbomam/no_corners
@@ -23,8 +23,8 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Date, Integer, String, Uriorcurie
-from linkml_runtime.utils.metamodelcore import URIorCURIE, XSDDate
+from linkml_runtime.linkml_model.types import String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import URIorCURIE
 
 metamodel_version = "1.7.0"
 version = None
@@ -49,7 +49,7 @@ class NamedThingId(URIorCURIE):
     pass
 
 
-class PersonId(NamedThingId):
+class BiosampleId(NamedThingId):
     pass
 
 
@@ -85,79 +85,54 @@ class NamedThing(YAMLRoot):
 
 
 @dataclass
-class Person(NamedThing):
+class Biosample(NamedThing):
     """
-    Represents a Person
+    Represents a Biosample
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NO_CORNERS.Person
-    class_class_curie: ClassVar[str] = "no_corners:Person"
-    class_name: ClassVar[str] = "Person"
-    class_model_uri: ClassVar[URIRef] = NO_CORNERS.Person
+    class_class_uri: ClassVar[URIRef] = NO_CORNERS.Biosample
+    class_class_curie: ClassVar[str] = "no_corners:Biosample"
+    class_name: ClassVar[str] = "Biosample"
+    class_model_uri: ClassVar[URIRef] = NO_CORNERS.Biosample
 
-    id: Union[str, PersonId] = None
-    primary_email: Optional[str] = None
-    birth_date: Optional[Union[str, XSDDate]] = None
-    age_in_years: Optional[int] = None
-    vital_status: Optional[Union[str, "PersonStatus"]] = None
+    id: Union[str, BiosampleId] = None
+    well_pos: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, PersonId):
-            self.id = PersonId(self.id)
+        if not isinstance(self.id, BiosampleId):
+            self.id = BiosampleId(self.id)
 
-        if self.primary_email is not None and not isinstance(self.primary_email, str):
-            self.primary_email = str(self.primary_email)
-
-        if self.birth_date is not None and not isinstance(self.birth_date, XSDDate):
-            self.birth_date = XSDDate(self.birth_date)
-
-        if self.age_in_years is not None and not isinstance(self.age_in_years, int):
-            self.age_in_years = int(self.age_in_years)
-
-        if self.vital_status is not None and not isinstance(self.vital_status, PersonStatus):
-            self.vital_status = PersonStatus(self.vital_status)
+        if self.well_pos is not None and not isinstance(self.well_pos, str):
+            self.well_pos = str(self.well_pos)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass
-class PersonCollection(YAMLRoot):
+class BiosampleCollection(YAMLRoot):
     """
-    A holder for Person objects
+    A holder for Biosample objects
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NO_CORNERS.PersonCollection
-    class_class_curie: ClassVar[str] = "no_corners:PersonCollection"
-    class_name: ClassVar[str] = "PersonCollection"
-    class_model_uri: ClassVar[URIRef] = NO_CORNERS.PersonCollection
+    class_class_uri: ClassVar[URIRef] = NO_CORNERS.BiosampleCollection
+    class_class_curie: ClassVar[str] = "no_corners:BiosampleCollection"
+    class_name: ClassVar[str] = "BiosampleCollection"
+    class_model_uri: ClassVar[URIRef] = NO_CORNERS.BiosampleCollection
 
-    entries: Optional[Union[Dict[Union[str, PersonId], Union[dict, Person]], List[Union[dict, Person]]]] = empty_dict()
+    entries: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Person, key_name="id", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Biosample, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 # Enumerations
-class PersonStatus(EnumDefinitionImpl):
 
-    ALIVE = PermissibleValue(text="ALIVE",
-                                 description="the person is living",
-                                 meaning=PATO["0001421"])
-    DEAD = PermissibleValue(text="DEAD",
-                               description="the person is deceased",
-                               meaning=PATO["0001422"])
-    UNKNOWN = PermissibleValue(text="UNKNOWN",
-                                     description="the vital status is not known")
-
-    _defn = EnumDefinition(
-        name="PersonStatus",
-    )
 
 # Slots
 class slots:
@@ -172,21 +147,9 @@ slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
 slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
                    model_uri=NO_CORNERS.description, domain=None, range=Optional[str])
 
-slots.primary_email = Slot(uri=SCHEMA.email, name="primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=NO_CORNERS.primary_email, domain=None, range=Optional[str])
+slots.well_pos = Slot(uri=NO_CORNERS.well_pos, name="well_pos", curie=NO_CORNERS.curie('well_pos'),
+                   model_uri=NO_CORNERS.well_pos, domain=None, range=Optional[str],
+                   pattern=re.compile(r'A1'))
 
-slots.birth_date = Slot(uri=SCHEMA.birthDate, name="birth_date", curie=SCHEMA.curie('birthDate'),
-                   model_uri=NO_CORNERS.birth_date, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.age_in_years = Slot(uri=NO_CORNERS.age_in_years, name="age_in_years", curie=NO_CORNERS.curie('age_in_years'),
-                   model_uri=NO_CORNERS.age_in_years, domain=None, range=Optional[int])
-
-slots.vital_status = Slot(uri=NO_CORNERS.vital_status, name="vital_status", curie=NO_CORNERS.curie('vital_status'),
-                   model_uri=NO_CORNERS.vital_status, domain=None, range=Optional[Union[str, "PersonStatus"]])
-
-slots.personCollection__entries = Slot(uri=NO_CORNERS.entries, name="personCollection__entries", curie=NO_CORNERS.curie('entries'),
-                   model_uri=NO_CORNERS.personCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, PersonId], Union[dict, Person]], List[Union[dict, Person]]]])
-
-slots.Person_primary_email = Slot(uri=SCHEMA.email, name="Person_primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=NO_CORNERS.Person_primary_email, domain=Person, range=Optional[str],
-                   pattern=re.compile(r'^\S+@[\S+\.]+\S+'))
+slots.biosampleCollection__entries = Slot(uri=NO_CORNERS.entries, name="biosampleCollection__entries", curie=NO_CORNERS.curie('entries'),
+                   model_uri=NO_CORNERS.biosampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])

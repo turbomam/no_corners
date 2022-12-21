@@ -41,10 +41,10 @@ classes:
   BiosampleCollection:
     tree_root: true
     description: >-
-      A holder for PerBiosampleson objects
+      A holder for Biosample objects
     attributes:
       entries:
-        range: Person
+        range: Biosample
         multivalued: true
         inlined: true
 

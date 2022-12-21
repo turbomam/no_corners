@@ -209,32 +209,6 @@
       "@type": "TypeDefinition"
     }
   ],
-  "enums": [
-    {
-      "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/PersonStatus",
-      "from_schema": "https://w3id.org/turbomam/no_corners",
-      "permissible_values": [
-        {
-          "text": "ALIVE",
-          "description": "the person is living",
-          "meaning": "PATO:0001421"
-        },
-        {
-          "text": "DEAD",
-          "description": "the person is deceased",
-          "meaning": "PATO:0001422"
-        },
-        {
-          "text": "UNKNOWN",
-          "description": "the vital status is not known",
-          "todos": [
-            "map this to an ontology"
-          ]
-        }
-      ]
-    }
-  ],
   "slots": [
     {
       "name": "id",
@@ -287,97 +261,30 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "primary_email",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/primary_email",
-      "description": "The main email address of a person",
+      "name": "well_pos",
+      "definition_uri": "https://w3id.org/turbomam/no_corners/well_pos",
       "from_schema": "https://w3id.org/turbomam/no_corners",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "slot_uri": "http://schema.org/email",
-      "owner": "Person",
+      "slot_uri": "https://w3id.org/turbomam/no_corners/well_pos",
+      "owner": "Biosample",
       "domain_of": [
-        "Person"
+        "Biosample"
       ],
       "range": "string",
+      "pattern": "A1",
       "@type": "SlotDefinition"
     },
     {
-      "name": "birth_date",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/birth_date",
-      "description": "Date on which a person is born",
-      "from_schema": "https://w3id.org/turbomam/no_corners",
-      "mappings": [
-        "http://schema.org/birthDate"
-      ],
-      "slot_uri": "http://schema.org/birthDate",
-      "owner": "Person",
-      "domain_of": [
-        "Person"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "age_in_years",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/age_in_years",
-      "description": "Number of years since birth",
-      "from_schema": "https://w3id.org/turbomam/no_corners",
-      "slot_uri": "https://w3id.org/turbomam/no_corners/age_in_years",
-      "owner": "Person",
-      "domain_of": [
-        "Person"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "vital_status",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/vital_status",
-      "description": "living or dead status",
-      "from_schema": "https://w3id.org/turbomam/no_corners",
-      "slot_uri": "https://w3id.org/turbomam/no_corners/vital_status",
-      "owner": "Person",
-      "domain_of": [
-        "Person"
-      ],
-      "range": "PersonStatus",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "personCollection__entries",
+      "name": "biosampleCollection__entries",
       "from_schema": "https://w3id.org/turbomam/no_corners",
       "slot_uri": "https://w3id.org/turbomam/no_corners/entries",
       "multivalued": true,
       "alias": "entries",
-      "owner": "PersonCollection",
+      "owner": "BiosampleCollection",
       "domain_of": [
-        "PersonCollection"
+        "BiosampleCollection"
       ],
-      "range": "Person",
+      "range": "Biosample",
       "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "Person_primary_email",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/turbomam/no_corners",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "is_a": "primary_email",
-      "domain": "Person",
-      "slot_uri": "http://schema.org/email",
-      "alias": "primary_email",
-      "owner": "Person",
-      "domain_of": [
-        "Person"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "primary_email",
-      "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
       "@type": "SlotDefinition"
     }
   ],
@@ -400,52 +307,49 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Person",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/Person",
-      "description": "Represents a Person",
+      "name": "Biosample",
+      "definition_uri": "https://w3id.org/turbomam/no_corners/Biosample",
+      "description": "Represents a Biosample",
       "from_schema": "https://w3id.org/turbomam/no_corners",
       "is_a": "NamedThing",
       "slots": [
         "id",
         "name",
         "description",
-        "Person_primary_email",
-        "birth_date",
-        "age_in_years",
-        "vital_status"
+        "well_pos"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/turbomam/no_corners/Person",
+      "class_uri": "https://w3id.org/turbomam/no_corners/Biosample",
       "@type": "ClassDefinition"
     },
     {
-      "name": "PersonCollection",
-      "definition_uri": "https://w3id.org/turbomam/no_corners/PersonCollection",
-      "description": "A holder for Person objects",
+      "name": "BiosampleCollection",
+      "definition_uri": "https://w3id.org/turbomam/no_corners/BiosampleCollection",
+      "description": "A holder for Biosample objects",
       "from_schema": "https://w3id.org/turbomam/no_corners",
       "slots": [
-        "personCollection__entries"
+        "biosampleCollection__entries"
       ],
       "slot_usage": {},
       "attributes": [
         {
           "name": "entries",
           "multivalued": true,
-          "range": "Person",
+          "range": "Biosample",
           "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/turbomam/no_corners/PersonCollection",
+      "class_uri": "https://w3id.org/turbomam/no_corners/BiosampleCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "no_corners.yaml",
-  "source_file_date": "2022-12-20T18:47:22",
-  "source_file_size": 2254,
-  "generation_date": "2022-12-20T18:59:19",
+  "source_file_date": "2022-12-20T19:13:00",
+  "source_file_size": 1455,
+  "generation_date": "2022-12-20T19:16:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/no_corners.context.jsonld",

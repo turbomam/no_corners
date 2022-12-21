@@ -35,6 +35,21 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
+<Biosample> CLOSED {
+    (  $<Biosample_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema:Thing ] ? ;
+          <well_pos> @linkml:String ?
+       ) ;
+       rdf:type [ <Biosample> ]
+    )
+}
+
+<BiosampleCollection> CLOSED {
+    (  $<BiosampleCollection_tes> <entries> @<Biosample> * ;
+       rdf:type [ <BiosampleCollection> ] ?
+    )
+}
+
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> (  schema:name @linkml:String ? ;
@@ -42,25 +57,7 @@ linkml:Nodeidentifier NONLITERAL
           ) ;
           rdf:type [ schema:Thing ]
        )
-    } OR @<Person>
+    } OR @<Biosample>
 )
-
-<Person> CLOSED {
-    (  $<Person_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema:Thing ] ? ;
-          schema:email @linkml:String ? ;
-          schema:birthDate @linkml:Date ? ;
-          <age_in_years> @linkml:Integer ? ;
-          <vital_status> @<PersonStatus> ?
-       ) ;
-       rdf:type [ <Person> ]
-    )
-}
-
-<PersonCollection> CLOSED {
-    (  $<PersonCollection_tes> <entries> @<Person> * ;
-       rdf:type [ <PersonCollection> ] ?
-    )
-}
 
 
