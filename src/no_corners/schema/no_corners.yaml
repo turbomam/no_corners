@@ -61,6 +61,4 @@ slots:
     slot_uri: schema:description
     description: A human-readable description for a thing
   well_pos:
-    pattern: ^((A2)|(A3))$
-
-    
+    pattern: ^(?!A1|A12|H1|H12)(([A-H][1-9])|([A-H]1[0-2]))$
