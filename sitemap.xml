@@ -6,32 +6,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://turbomam.github.io/no_corners/Biosample/</loc>
+         <lastmod>2022-12-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://turbomam.github.io/no_corners/BiosampleCollection/</loc>
+         <lastmod>2022-12-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://turbomam.github.io/no_corners/NamedThing/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://turbomam.github.io/no_corners/Person/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://turbomam.github.io/no_corners/PersonCollection/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://turbomam.github.io/no_corners/PersonStatus/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://turbomam.github.io/no_corners/age_in_years/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://turbomam.github.io/no_corners/birth_date/</loc>
          <lastmod>2022-12-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -61,17 +46,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://turbomam.github.io/no_corners/primary_email/</loc>
-         <lastmod>2022-12-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://turbomam.github.io/no_corners/types/</loc>
          <lastmod>2022-12-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://turbomam.github.io/no_corners/vital_status/</loc>
+         <loc>https://turbomam.github.io/no_corners/well_pos/</loc>
          <lastmod>2022-12-21</lastmod>
          <changefreq>daily</changefreq>
     </url>

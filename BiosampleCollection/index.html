@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://turbomam.github.io/no_corners/PersonCollection/" rel="canonical"/>
+<link href="https://turbomam.github.io/no_corners/BiosampleCollection/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: PersonCollection - no_corners</title>
+<title>Class: BiosampleCollection - no_corners</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-personcollection">
+<a class="md-skip" href="#class-biosamplecollection">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: PersonCollection
+              Class: BiosampleCollection
             
           </span>
 </div>
@@ -191,15 +191,15 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/turbomam/no_corners/edit/master/docs/PersonCollection.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/turbomam/no_corners/edit/master/docs/BiosampleCollection.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-personcollection">Class: PersonCollection</h1>
-<p><em>A holder for Person objects</em></p>
-<p>URI: <a href="https://w3id.org/turbomam/no_corners/PersonCollection">no_corners:PersonCollection</a></p>
+<h1 id="class-biosamplecollection">Class: BiosampleCollection</h1>
+<p><em>A holder for Biosample objects</em></p>
+<p>URI: <a href="https://w3id.org/turbomam/no_corners/BiosampleCollection">no_corners:BiosampleCollection</a></p>
 <div class="mermaid"> classDiagram
-    class PersonCollection
-      PersonCollection : entries
+    class BiosampleCollection
+      BiosampleCollection : entries
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -216,7 +216,7 @@
 <tbody>
 <tr>
 <td><a href="../entries/">entries</a></td>
-<td>0..* <br/> <a href="../Person/">Person</a></td>
+<td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -238,11 +238,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>no_corners:PersonCollection</td>
+<td>no_corners:BiosampleCollection</td>
 </tr>
 <tr>
 <td>native</td>
-<td>no_corners:PersonCollection</td>
+<td>no_corners:BiosampleCollection</td>
 </tr>
 </tbody>
 </table>
@@ -250,8 +250,8 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: PersonCollection
-description: A holder for Person objects
+<pre><code class="language-yaml">name: BiosampleCollection
+description: A holder for Biosample objects
 from_schema: https://w3id.org/turbomam/no_corners
 rank: 1000
 attributes:
@@ -260,7 +260,7 @@ attributes:
     from_schema: https://w3id.org/turbomam/no_corners
     rank: 1000
     multivalued: true
-    range: Person
+    range: Biosample
     inlined: true
 tree_root: true
 
@@ -268,8 +268,8 @@ tree_root: true
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: PersonCollection
-description: A holder for Person objects
+<pre><code class="language-yaml">name: BiosampleCollection
+description: A holder for Biosample objects
 from_schema: https://w3id.org/turbomam/no_corners
 rank: 1000
 attributes:
@@ -279,10 +279,10 @@ attributes:
     rank: 1000
     multivalued: true
     alias: entries
-    owner: PersonCollection
+    owner: BiosampleCollection
     domain_of:
-    - PersonCollection
-    range: Person
+    - BiosampleCollection
+    range: Biosample
     inlined: true
 tree_root: true
 
