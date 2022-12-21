@@ -24,11 +24,11 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "no_corners" ;
     rdfs:seeAlso "https://turbomam.github.io/no_corners" ;
-    linkml:generation_date "2022-12-20T19:16:34" ;
+    linkml:generation_date "2022-12-20T19:19:24" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "no_corners.yaml" ;
-    linkml:source_file_date "2022-12-20T19:13:00" ;
-    linkml:source_file_size 1455 .
+    linkml:source_file_date "2022-12-20T19:19:10" ;
+    linkml:source_file_size 1466 .
 
 no_corners:BiosampleCollection a owl:Class,
         linkml:ClassDefinition ;
@@ -83,13 +83,13 @@ no_corners:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty schema:description ],
-        [ a owl:Restriction ;
             owl:onClass linkml:Uriorcurie ;
             owl:onProperty schema:identifier ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty schema:description ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;

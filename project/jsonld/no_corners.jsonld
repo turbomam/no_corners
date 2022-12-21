@@ -270,7 +270,7 @@
         "Biosample"
       ],
       "range": "string",
-      "pattern": "A1",
+      "pattern": "^((A2)|(A3))$",
       "@type": "SlotDefinition"
     },
     {
@@ -347,9 +347,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "no_corners.yaml",
-  "source_file_date": "2022-12-20T19:13:00",
-  "source_file_size": 1455,
-  "generation_date": "2022-12-20T19:16:30",
+  "source_file_date": "2022-12-20T19:19:10",
+  "source_file_size": 1466,
+  "generation_date": "2022-12-20T19:19:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/no_corners.context.jsonld",

@@ -1,5 +1,5 @@
 # Auto generated from no_corners.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-20T19:16:36
+# Generation date: 2022-12-20T19:19:27
 # Schema: no_corners
 #
 # id: https://w3id.org/turbomam/no_corners
@@ -149,7 +149,7 @@ slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEM
 
 slots.well_pos = Slot(uri=NO_CORNERS.well_pos, name="well_pos", curie=NO_CORNERS.curie('well_pos'),
                    model_uri=NO_CORNERS.well_pos, domain=None, range=Optional[str],
-                   pattern=re.compile(r'A1'))
+                   pattern=re.compile(r'^((A2)|(A3))$'))
 
 slots.biosampleCollection__entries = Slot(uri=NO_CORNERS.entries, name="biosampleCollection__entries", curie=NO_CORNERS.curie('entries'),
                    model_uri=NO_CORNERS.biosampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])
